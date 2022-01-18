@@ -60,21 +60,40 @@ document.body.addEventListener("mouseleave", () => {
 });
 
 // Main Button
-const mainBtn = document.querySelector(".main-btn");
+const mainBtns = document.querySelectorAll(".main-btn");
 
-let ripple;
-mainBtn.addEventListener("mouseenter", (e) => {
-  let left = e.clientX - e.target.getBoundingClientRect().left;
-  let top = e.clientY - e.target.getBoundingClientRect().top;
+mainBtns.forEach((btn) => {
+  let ripple;
 
-  ripple = document.createElement("div");
-  ripple.classList.add("ripple");
-  ripple.style.left = `${left}px`;
-  ripple.style.top = `${top}px`;
-  mainBtn.prepend(ripple);
-});
+  btn.addEventListener("mouseenter", (e) => {
+    let left = e.clientX - e.target.getBoundingClientRect().left;
+    let top = e.clientY - e.target.getBoundingClientRect().top;
 
-mainBtn.addEventListener("mouseleave", () => {
-  mainBtn.removeChild(ripple);
+    ripple = document.createElement("div");
+    ripple.classList.add("ripple");
+    ripple.style.left = `${left}px`;
+    ripple.style.top = `${top}px`;
+    btn.prepend(ripple);
+  });
+
+  btn.addEventListener("mouseleave", () => {
+    btn.removeChild(ripple);
+  });
 });
 // End of Main Button
+
+// About Me Text
+const aboutMeText = document.querySelector(".about-me-text");
+const aboutMeTextContent =
+  "I am a developer & I create award winning websites with the best user experience & I do not talk much, just contact me.:)";
+
+Array.from(aboutMeTextContent).forEach((char) => {
+  const span = document.createElement("span");
+  span.textContent = char;
+  aboutMeText.append(span);
+
+  span.addEventListener("mouseenter", (e) => {
+    e.target.style.animation = "aboutMeTextAnim 10s infinite";
+  });
+});
+// End of About Me Text
