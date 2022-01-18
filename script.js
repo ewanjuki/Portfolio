@@ -9,8 +9,8 @@ const mouseCircleFn = (x, y) => {
 // End of Mouse Circle
 
 // Animated Circles
-const circles = document.querySelectorAll('.circle');
-const mainImg = document.querySelector('.main-circle img');
+const circles = document.querySelectorAll(".circle");
+const mainImg = document.querySelector(".main-circle img");
 
 let mX = 0;
 let mY = 0;
@@ -18,24 +18,24 @@ const z = 100;
 
 const animateCircles = (e, x, y) => {
   if (x < mX) {
-    circles.forEach(circle => {
+    circles.forEach((circle) => {
       circle.style.left = `${z}px`;
     });
     mainImg.style.left = `${z}px`;
   } else if (x > mX) {
-    circles.forEach(circle => {
+    circles.forEach((circle) => {
       circle.style.left = `-${z}px`;
     });
     mainImg.style.left = `-${z}px`;
   }
 
   if (y < mY) {
-    circles.forEach(circle => {
+    circles.forEach((circle) => {
       circle.style.top = `${z}px`;
     });
     mainImg.style.top = `${z}px`;
   } else if (y > mY) {
-    circles.forEach(circle => {
+    circles.forEach((circle) => {
       circle.style.top = `-${z}px`;
     });
     mainImg.style.top = `-${z}px`;
@@ -58,4 +58,3 @@ document.body.addEventListener("mouseleave", () => {
   mouseCircle.style.opacity = "0";
   mouseDot.style.opacity = "0";
 });
-
