@@ -103,7 +103,7 @@ const container = document.querySelector(".container");
 const projects = document.querySelectorAll(".project");
 const projectHideBtn = document.querySelector(".project-hide-btn");
 
-projects.forEach((project) => {
+projects.forEach((project, i) => {
   project.addEventListener("mouseenter", () => {
     project.firstElementChild.style.top = `-${
       project.firstElementChild.offsetHeight - project.offsetHeight + 20
@@ -136,5 +136,53 @@ projects.forEach((project) => {
     };
   });
   // End of Big Project Image
+
+  i >= 6 && (project.style.cssText = "display:none;opacity:0;");
 });
 // End of Projects
+
+// Projects Button
+const section3 = document.querySelector(".section-3");
+const projectsBtn = document.querySelector(".projects-btn");
+const projectsBtnText = document.querySelector(".projects-btn span");
+
+const showProjects = (project, i) => {
+  setTimeout(() => {
+    project.style.display = "flex";
+    section3.scrollIntoView({ block: "end" });
+  }, 600);
+
+  setTimeout(() => {
+    project.style.opacity = "1";
+  }, i * 200);
+};
+
+const hideProjects = (project, i) => {
+  setTimeout(() => {
+    project.style.display = "none";
+    section3.scrollIntoView({ block: "end" });
+  }, 1200);
+
+  setTimeout(() => {
+    project.style.opacity = "0";
+  }, i * 100);
+};
+
+let showHideBool = true;
+projectsBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+
+  projectsBtn.firstElementChild.nextElementSibling.classList.toggle("change");
+
+  showHideBool
+    ? (projectsBtnText.textContent = "Show Less")
+    : (projectsBtnText.textContent = "Show More");
+
+  projects.forEach((project, i) => {
+    i >= 6 &&
+      (showHideBool ? showProjects(project, i) : hideProjects(project, i));
+  });
+
+  showHideBool = !showHideBool;
+});
+// End of Projects Button
