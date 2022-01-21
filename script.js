@@ -251,7 +251,7 @@ menuIcon.addEventListener("click", () => {
 // About Me Text
 const aboutMeText = document.querySelector(".about-me-text");
 const aboutMeTextContent =
-  "I am a developer & I create award winning websites with the best user experience & I do not talk much, just contact me.:)";
+  "I am a developer & I love creating eCommerce websites with Shopify & I do not talk much, just contact me.:)";
 
 Array.from(aboutMeTextContent).forEach((char) => {
   const span = document.createElement("span");
