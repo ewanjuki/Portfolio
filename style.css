@@ -533,7 +533,7 @@ html {
   25% {
     transform: rotateY(-2deg) rotateX(2deg);
   }
-  25% {
+  50% {
     transform: rotateY(2deg) rotateX(-2deg);
   }
   100% {
@@ -553,7 +553,7 @@ html {
   25% {
     transform: rotateY(2deg) rotateX(-2deg);
   }
-  25% {
+  50% {
     transform: rotateY(-2deg) rotateX(2deg);
   }
   100% {
